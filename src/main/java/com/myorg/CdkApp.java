@@ -22,6 +22,7 @@ public class CdkApp {
         service01Stack.addDependency(snsStack);
 
         Service02Stack service02Stack = new Service02Stack(app, "Service02",cluster.getCluster(),snsStack.getProductEventsTopic());
+        service02Stack.addDependency(cluster);
         service02Stack.addDependency(snsStack);
 
         app.synth();

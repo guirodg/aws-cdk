@@ -88,7 +88,7 @@ public class Service02Stack extends Stack {
                 .scaleInCooldown(Duration.seconds(60))
                 .scaleOutCooldown(Duration.seconds(60))
                 .build());
-
-        productEventsTopic.getTopic().grantPublish(service02.getTaskDefinition().getTaskRole());
+        // Atribuir permissão para consumir fila
+        productEventsQueue.grantConsumeMessages(service02.getTaskDefinition().getTaskRole());
     }
 }

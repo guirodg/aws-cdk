@@ -23,7 +23,7 @@ public class CdkApp {
 
         DdbStack ddbStack = new DdbStack(app, "Dbd");
 
-        Service02Stack service02Stack = new Service02Stack(app, "Service02",cluster.getCluster(),snsStack.getProductEventsTopic());
+        Service02Stack service02Stack = new Service02Stack(app, "Service02",cluster.getCluster(),snsStack.getProductEventsTopic(), ddbStack.getProductEventsDbd());
         service02Stack.addDependency(cluster);
         service02Stack.addDependency(snsStack);
         service02Stack.addDependency(ddbStack);
